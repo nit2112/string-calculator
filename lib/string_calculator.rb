@@ -1,15 +1,22 @@
 class StringCalculator
-  def self.add(input)
-    result = 0
-    
-    case input
+  def self.add(input)   
+    numbers = string_to_numbers(input)
 
-    when "1"
-      result = 1
+    sum_of_numbers(numbers)
+  end
 
-    when "1, 5"
-      result = 1 + 5 
+  private 
+
+  def self.string_to_numbers str
+    delimiters = [""]
+    str.split(Regexp.union(delimiters))
+  end
+
+  def self.sum_of_numbers numbers
+    sum = 0
+    numbers.each do |num|
+      sum += num.to_i
     end
-    result
+    sum
   end
 end
