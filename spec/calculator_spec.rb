@@ -8,4 +8,16 @@ describe StringCalculator do
     end
   end
 
+  context "given a number one" do
+    it "returns zero" do
+      expect(StringCalculator.add("1")).to eq(1)
+    end
+  end
+
+  context "given a number one and five" do
+    it "returns six" do
+      expect(StringCalculator.add('1, 5')).to eq(6)
+    end
+  end
+
 end
