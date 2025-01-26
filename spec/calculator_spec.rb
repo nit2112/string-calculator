@@ -29,7 +29,17 @@ describe StringCalculator do
   context "when input contains a different delimiters" do
     it "returns their sum" do
       expect(StringCalculator.add("//;\n1;2")).to eq(3)
-      expect(StringCalculator.add("//'\n1;7")).to eq(8)
+      expect(StringCalculator.add("//;\n1;7")).to eq(8)
+    end
+  end
+
+  context "when input contains negative numbers" do
+    it "raises an exception" do
+      expect { StringCalculator.add("1,-1") }.to raise_error("negative numbers not allowed: -1")
+    end
+
+    it "raises an exception" do
+      expect { StringCalculator.add("1,-1,-2") }.to raise_error("negative numbers not allowed: -1,-2")
     end
   end
 
