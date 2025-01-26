@@ -8,7 +8,13 @@ class StringCalculator
   private 
 
   def self.string_to_numbers str
-    delimiters = [""]
+    delimiters = ["", "\n"]
+
+    separate_line_index = str.index("//")
+    if separate_line_index
+      delimeter = str[separate_line_index + 2]
+      delimiters << delimeter    
+    end
     str.split(Regexp.union(delimiters))
   end
 
